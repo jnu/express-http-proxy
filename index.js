@@ -135,7 +135,7 @@ module.exports = function proxy(host, options) {
               }
               
               if (!res.headersSent)
-                res.set('content-length', rspd.length);
+                res.set('content-length', '' + rspd.length);
               else if (rspd.length != rspData.length) {
                 next(new Error("'Content-Length' is already sent, the length of response data can not be changed"));
               }
